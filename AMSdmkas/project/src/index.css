@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cursor-glow {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 70%);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: 0.15s ease;
+}
+
+.card-glow {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+  z-index: -1;
+  border-radius: lg;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-glow:hover {
+  transform: translateY(-2px);
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
